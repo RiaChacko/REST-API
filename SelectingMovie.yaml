@@ -1,1 +1,21 @@
+// Basic Information - version, info with non - trivial description, paths
+//GET - summary, parameters, at least two responses
+// POST - summary, requestBody, at least two responses
+// DELETE - summary, at least 3 responses
 
+info: 
+  title: Selecting a Movie Time API
+  description: This API allows the user to select a movie at a particular time and choose a seat. 
+  version: 1.0.8
+  
+paths:
+  /user:
+    get:
+      summary:
+      responses:
+        '200':
+          description: OK
+        '404':
+          description: Not Found
+        
+  
