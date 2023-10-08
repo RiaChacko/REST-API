@@ -9,13 +9,48 @@ info:
   version: 1.0.8
   
 paths:
-  /user:
+  /times/{date}:
     get:
-      summary:
+      summary: Retrieves the movie times for a particular date that is inputted by a user.
+      parameters:
+        - Date: date
+          in: path
+          required: true
+          description: Date is formatted without any slashes or hyphens
+          schema:
+            type : integer
+            format: int64
+            minimum: 1
       responses:
         '200':
           description: OK
         '404':
-          description: Not Found
+          description: No Movie Times
+  /user:
+    post:
+      summary: Adds a movie to a user account
+      requestBody:
+        required: true
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  username:
+                    type: string
+                  password:
+                    type: string
+      responses: 
+        '201':
+          description: Added Movie 
+        '404':
+          description: Could not add movie
+  /user:
+    delete:
+      summary: Deletes a movie
+      responses:
+        '201': Succesfully Deleted the Movie
+        '400': This is not a valid movie
+        '404': Movie could not be deleted
         
   
